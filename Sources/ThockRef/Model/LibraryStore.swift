@@ -80,8 +80,8 @@ final class LibraryStore: ObservableObject {
         libraries = mdFiles.compactMap { url in
             guard let text = try? String(contentsOf: url, encoding: .utf8) else { return nil }
             let name = libraryName(from: url)
-            let (shortcuts, legend) = MarkdownParser.parse(text, source: name)
-            return Library(name: name, shortcuts: shortcuts, layoutLegend: legend)
+            let (shortcuts, legend, links) = MarkdownParser.parse(text, source: name)
+            return Library(name: name, shortcuts: shortcuts, layoutLegend: legend, links: links)
         }
     }
 
