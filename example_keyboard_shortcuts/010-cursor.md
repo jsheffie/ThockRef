@@ -1,8 +1,8 @@
-```
+```laptop-layout
                .-------------.   
                | Shift ⇧     |  
                |--------.----'-----.-------.
-Laptop Layout: | ctrl ^ | option ⌥ | CMD ⌘ | 
+               | ctrl ^ | option ⌥ | CMD ⌘ | 
                 `-------'----------'-------'
 ```
 Mac Keyboard Sequences

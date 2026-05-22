@@ -1,7 +1,7 @@
 - [Master VS Code's keyboard shortcuts in 13 minutes](https://www.youtube.com/watch?v=nWIRJBCjls8)
 - [vscode keyboard shortcuts for mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
 
-```
+```laptop-layout
                .-------------.   
                | Shift ⇧     |  
                |--------.----'-----.-------.

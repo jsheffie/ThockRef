@@ -14,6 +14,7 @@ enum MarkdownParser {
             let line = lines[index]
 
             if line.hasPrefix("```") {
+                let isLayoutBlock = line.hasPrefix("```laptop-layout")
                 var blockLines: [String] = []
                 index += 1
                 while index < lines.count && !lines[index].hasPrefix("```") {
@@ -22,9 +23,8 @@ enum MarkdownParser {
                 }
                 index += 1  // consume closing ```
 
-                let blockText = blockLines.joined(separator: "\n")
-                if layoutLegend == nil, blockText.contains("Laptop Layout:") {
-                    layoutLegend = blockText
+                if isLayoutBlock, layoutLegend == nil {
+                    layoutLegend = blockLines.joined(separator: "\n")
                 }
                 // Don't reset passedHeader — code blocks can appear between table sections
                 continue
