@@ -63,18 +63,35 @@ struct ShortcutListView: View {
                     Divider()
                 }
 
-                List(library.shortcuts) { shortcut in
-                    HStack(alignment: .top, spacing: 12) {
-                        Text(shortcut.keys)
-                            .font(.system(.body, design: .monospaced))
-                            .foregroundStyle(.primary)
-                            .frame(minWidth: 110, alignment: .leading)
-                        Text(shortcut.description)
-                            .font(.body)
-                            .foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
+                List {
+                    ForEach(library.shortcuts) { shortcut in
+                        HStack(alignment: .top, spacing: 12) {
+                            Text(shortcut.keys)
+                                .font(.system(.body, design: .monospaced))
+                                .foregroundStyle(.primary)
+                                .frame(minWidth: 110, alignment: .leading)
+                            Text(shortcut.description)
+                                .font(.body)
+                                .foregroundStyle(.secondary)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        .padding(.vertical, 2)
                     }
-                    .padding(.vertical, 2)
+
+                    if !library.links.isEmpty {
+                        Section {
+                            ForEach(library.links) { link in
+                                Link(link.label, destination: link.url)
+                                    .font(.subheadline)
+                                    .lineLimit(1)
+                                    .truncationMode(.tail)
+                            }
+                        } header: {
+                            Text("Links")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
                 }
                 .listStyle(.plain)
             }

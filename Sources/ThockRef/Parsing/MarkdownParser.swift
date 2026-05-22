@@ -2,9 +2,10 @@ import Foundation
 
 enum MarkdownParser {
 
-    static func parse(_ text: String, source: String) -> ([Shortcut], String?) {
+    static func parse(_ text: String, source: String) -> (shortcuts: [Shortcut], layoutLegend: String?, links: [LibraryLink]) {
         var shortcuts: [Shortcut] = []
         var layoutLegend: String? = nil
+        var links: [LibraryLink] = []
 
         let lines = text.components(separatedBy: .newlines)
         var index = 0
@@ -60,13 +61,32 @@ enum MarkdownParser {
 
             // Non-table non-blank line resets header state so the next table's
             // header row is treated correctly.
-            if !line.trimmingCharacters(in: .whitespaces).isEmpty {
+            let trimmedLine = line.trimmingCharacters(in: .whitespaces)
+            if !trimmedLine.isEmpty {
                 passedHeader = false
+                links.append(contentsOf: extractLinks(from: trimmedLine))
             }
             index += 1
         }
 
-        return (shortcuts, layoutLegend)
+        return (shortcuts, layoutLegend, links)
+    }
+
+    private static let linkRegex: NSRegularExpression = {
+        // Matches [label](https://...) — only absolute http/https URLs
+        try! NSRegularExpression(pattern: #"\[([^\]]+)\]\((https?://[^)]+)\)"#)
+    }()
+
+    private static func extractLinks(from line: String) -> [LibraryLink] {
+        let ns = line as NSString
+        let matches = linkRegex.matches(in: line, range: NSRange(location: 0, length: ns.length))
+        return matches.compactMap { match in
+            guard match.numberOfRanges == 3 else { return nil }
+            let label = ns.substring(with: match.range(at: 1))
+            let rawURL = ns.substring(with: match.range(at: 2))
+            guard let url = URL(string: rawURL) else { return nil }
+            return LibraryLink(label: label, url: url)
+        }
     }
 
     private static func looksLikePipeRow(_ line: String) -> Bool {
