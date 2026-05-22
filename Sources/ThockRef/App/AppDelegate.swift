@@ -6,6 +6,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem?
     private var popover: NSPopover?
     private var store: LibraryStore?
+    private var eventMonitor: Any?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         let store = LibraryStore()
@@ -34,10 +35,31 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     @objc private func togglePopover(_ sender: AnyObject?) {
         guard let popover, let button = statusItem?.button else { return }
         if popover.isShown {
-            popover.performClose(sender)
+            closePopover()
         } else {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
             popover.contentViewController?.view.window?.makeKey()
+            startEventMonitor()
+        }
+    }
+
+    private func closePopover() {
+        popover?.performClose(nil)
+        stopEventMonitor()
+    }
+
+    private func startEventMonitor() {
+        // Monitor clicks outside the popover to close it (replaces .transient behavior
+        // which resigns key focus and breaks text input).
+        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
+            self?.closePopover()
+        }
+    }
+
+    private func stopEventMonitor() {
+        if let monitor = eventMonitor {
+            NSEvent.removeMonitor(monitor)
+            eventMonitor = nil
         }
     }
 }
