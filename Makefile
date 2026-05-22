@@ -46,6 +46,14 @@ seed:
 		fi \
 	done
 
+dist:
+	mkdir -p ~/.config/thockref
+	@for f in example_keyboard_shortcuts/*.md; do \
+		dest=~/.config/thockref/$$(basename $$f); \
+		cp "$$f" "$$dest"; \
+		echo "Dist $$dest"; \
+	done
+
 archive: app
 	rm -rf $(STAGE) $(ARCHIVE)
 	mkdir -p $(STAGE)

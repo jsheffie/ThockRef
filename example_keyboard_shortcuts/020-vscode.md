@@ -8,90 +8,178 @@
 Laptop Layout: | ctrl ^ | option ⌥ | CMD ⌘ | 
                 `-------'----------'-------'
 ```
-Mac Keyboard Sequences
 
-| Key Seq | RKey Seq | Result | Emacs Binding | 
-|---------|----------|--------|--- | 
-| ⌘ ⇧ p |  | Command Pallet |
-| ^ `   |  | Toggle Open Terminal |
-| ⌘ 0   |  | Focus Side Drawer |
-| ⌘ 1   |  | Focus Editor |
-| ⌘ b   |  | Toggle Side Drawer |
-| ⌘ p   |  | Search for file and open |
-| ⌘ t   |  | Search for Tag |
-| ^ g   |  | Goto Line |
-| ⌘ w   |  | Close Editor |
-| ⌘ →   |  | Split Editor 2 windows |
-| ⌘ ←   |  | Back to one window |
-| ⌘ ,   |  | Open Settings |
-| ⌘ k   |  | Clear Terminal | ^ l |
-| ⌘ k 1  |  | Folding 1 level |
-| ⌘ k 2  |  | Folding 2 levels |
-| ⌘ k z  |  | Zen Mode (Esc Esc to exit) |
-| ⌥ ⌘ [  | ⌥ ⌘ ] | Fold/unfold region |
-⌘K ⌘[    | ⌘K ⌘] | Fold/unfold all subregions
-⌘K ⌘0    | ⌘K ⌘J | Fold/unfold all regions
+## General
 
-```
-CMD⌘   -> Shift -> P = Command Pallet
-ctrl^  -> `          = Open Close Terminal 
-CMD⌘   -> 0          = Focus on Side Drawer
-CMD⌘   -> 1          = Focus on Editor
-CMD⌘   -> b          = Close the side Drawer
-ctrl^  -> tab        = switch between editor windows
-CMD⌘   -> ,          = Open Settings
-CMD⌘   -> W          = Close Editor
---- F i n d     T h i n g s ---
-CMD⌘   -> p          = Find File
-CMD⌘   -> t          = find symbol (find functions etc)
-CMD⌘   -> f          = find in page
---- C u t    N    P a s t e    N    U n d o ---
-CMD⌘   -> x          = cut
-CMD⌘   -> v          = paste
-CMD⌘   -> c          = Copy
-CMD⌘   -> z          = Undo
-SHIFT -> CMD⌘ ->     = Redo
+| Key Seq | Result |
+|---------|--------|
+| ⌘ ⇧ p, F1 | Command Palette |
+| ⌘ p | Quick Open / Go to File |
+| ⌘ ⇧ n | New window/instance |
+| ⌘ w | Close window/instance |
+| ⌘ , | User Settings |
+| ⌘k ⌘s | Keyboard Shortcuts |
 
-CMD⌘   -> /          = Comment things out
+## Basic Editing
 
-SHIFT -> CMD⌘ -> right-arrow   = Select to end of line
-SHIFT -> ctrl -> right-arrow  = Selects the entire block
-option -> up-arrow/down-arrow = move selected things around
+| Key Seq | Result |
+|---------|--------|
+| ⌘ x | Cut line (empty selection) |
+| ⌘ c | Copy line (empty selection) |
+| ⌥ ↓ / ⌥ ↑ | Move line down/up |
+| ⇧ ⌥ ↓ / ⇧ ⌥ ↑ | Copy line down/up |
+| ⇧ ⌘ k | Delete line |
+| ⌘ Enter / ⇧ ⌘ Enter | Insert line below/above |
+| ⇧ ⌘ \ | Jump to matching bracket |
+| ⌘ ] / ⌘ [ | Indent/outdent line |
+| Home / End | Go to beginning/end of line |
+| ⌘ ↑ / ⌘ ↓ | Go to beginning/end of file |
+| ^ PgUp / ^ PgDn | Scroll line up/down |
+| ⌘ PgUp / ⌘ PgDn | Scroll page up/down |
+| ⌥ ⌘ [ / ⌥ ⌘ ] | Fold/unfold region |
+| ⌘k ⌘[ / ⌘k ⌘] | Fold/unfold all subregions |
+| ⌘k ⌘0 / ⌘k ⌘j | Fold/unfold all regions |
+| ⌘k ⌘c | Add line comment |
+| ⌘k ⌘u | Remove line comment |
+| ⌘ / | Toggle line comment |
+| ⇧ ⌥ a | Toggle block comment |
+| ⌥ z | Toggle word wrap |
 
-CMD⌘   -> left-arrow    = Put cursor at front of line
-ctrl  -> a              = Put cursor at front of line ( emacs binding )
-CMD⌘   -> right-arrow   = Put cursor at end of line 
-ctrl  -> e              = Put cursor at end of line ( emacs binding  )
+## Multi-cursor and Selection
 
----  T e r m i n a l    C o m a n d s  ---
-ctrl -> `  = view toggle  terminal
-ctrl -> SHIFT -> ` = create new terminal
-SHIFT -> CMD⌘ -> ] = Focus Next Terminal
-SHIFT -> CMD⌘ -> [ = Focus Previous Terminal
-SHIFT -> CMD⌘ -> [ = Close Terminal
-CMD⌘ -> K  = Clear terminal
+| Key Seq | Result |
+|---------|--------|
+| ⌥ + click | Insert cursor |
+| ⌥ ⌘ ↑ | Insert cursor above |
+| ⌥ ⌘ ↓ | Insert cursor below |
+| ⌘ u | Undo last cursor operation |
+| ⇧ ⌥ i | Insert cursor at end of each line selected |
+| ⌘ l | Select current line |
+| ⇧ ⌘ l | Select all occurrences of current selection |
+| ⌘ F2 | Select all occurrences of current word |
+| ^ ⇧ ⌘ → / ← | Expand/shrink selection |
+| ⇧ ⌥ ⌘ ↑ / ↓ | Column (box) selection up/down |
+| ⇧ ⌥ ⌘ ← / → | Column (box) selection left/right |
+| ⇧ ⌥ ⌘ PgUp | Column (box) selection page up |
+| ⇧ ⌥ ⌘ PgDn | Column (box) selection page down |
 
-```
+## Search and Replace
 
-Change the Font. Open Settings, Type Font `CMD -> ,` then type `font`
-Change the theme. In settings `CMD -> KT` 
+| Key Seq | Result |
+|---------|--------|
+| ⌘ f | Find |
+| ⌥ ⌘ f | Replace |
+| ⌘ g / ⇧ ⌘ g | Find next/previous |
+| ⌥ Enter | Select all occurrences of Find match |
+| ⌘ d | Add selection to next Find match |
+| ⌘k ⌘d | Move last selection to next Find match |
 
+## Rich Languages Editing
 
+| Key Seq | Result |
+|---------|--------|
+| ^ Space, ⌘ i | Trigger suggestion |
+| ⇧ ⌘ Space | Trigger parameter hints |
+| ⇧ ⌥ f | Format document |
+| ⌘k ⌘f | Format selection |
+| F12 | Go to Definition |
+| ⌥ F12 | Peek Definition |
+| ⌘k F12 | Open Definition to the side |
+| ⌘ . | Quick Fix |
+| ⇧ F12 | Show References |
+| F2 | Rename Symbol |
+| ⌘k ⌘x | Trim trailing whitespace |
+| ⌘k m | Change file language |
 
-Workflow Quiz
-```
-⌘ p       = search for a file, open it 
-⌘ t       = search for a symbol, open it.
-^ `       = open terminal 
-^ shift ` = open new terminal
-shift ⌘ ] = toggle between terminals
-^ `       = hide terminal
-^ tab     = switch to different files
-⌘ w       = close file
-```
+## Navigation
 
+| Key Seq | Result |
+|---------|--------|
+| ⌘ t | Show all Symbols |
+| ^ g | Go to Line |
+| ⌘ p | Go to File |
+| ⇧ ⌘ o | Go to Symbol |
+| ⇧ ⌘ m | Show Problems panel |
+| F8 / ⇧ F8 | Go to next/previous error or warning |
+| ^ ⇧ Tab | Navigate editor group history |
+| ^ - / ^ ⇧ - | Go back/forward |
+| ^ ⇧ m | Toggle Tab moves focus |
 
-    
+## Editor Management
+
+| Key Seq | Result |
+|---------|--------|
+| ⌘ w | Close editor |
+| ⌘k f | Close folder |
+| ⌘ \ | Split editor |
+| ⌘ 1 / ⌘ 2 / ⌘ 3 | Focus into 1st, 2nd, 3rd editor group |
+| ⌘k ⌘ ← / ⌘k ⌘ → | Focus into previous/next editor group |
+| ⌘k ⇧ ⌘ ← / ⌘k ⇧ ⌘ → | Move editor left/right |
+| ⌘k ← / ⌘k → | Move active editor group |
+
+## File Management
+
+| Key Seq | Result |
+|---------|--------|
+| ⌘ n | New File |
+| ⌘ o | Open File |
+| ⌘ s | Save |
+| ⇧ ⌘ s | Save As |
+| ⌥ ⌘ s | Save All |
+| ⌘ w | Close |
+| ⌘k ⌘w | Close All |
+| ⇧ ⌘ t | Reopen closed editor |
+| ⌘k Enter | Keep preview mode editor open |
+| ^ Tab / ^ ⇧ Tab | Open next/previous |
+| ⌘k p | Copy path of active file |
+| ⌘k r | Reveal active file in Finder |
+| ⌘k o | Show active file in new window/instance |
+
+## Display
+
+| Key Seq | Result |
+|---------|--------|
+| ^ ⌘ f | Toggle full screen |
+| ⌥ ⌘ 0 | Toggle editor layout (horizontal/vertical) |
+| ⌘ = / ⇧ ⌘ - | Zoom in/out |
+| ⌘ b | Toggle Sidebar visibility |
+| ⇧ ⌘ e | Show Explorer / Toggle focus |
+| ⇧ ⌘ f | Show Search |
+| ^ ⇧ g | Show Source Control |
+| ⇧ ⌘ d | Show Debug |
+| ⇧ ⌘ x | Show Extensions |
+| ⇧ ⌘ h | Replace in files |
+| ⇧ ⌘ j | Toggle Search details |
+| ⇧ ⌘ u | Show Output panel |
+| ⇧ ⌘ v | Open Markdown preview |
+| ⌘k v | Open Markdown preview to the side |
+| ⌘k z | Zen Mode (Esc Esc to exit) |
+
+## Debug
+
+| Key Seq | Result |
+|---------|--------|
+| F9 | Toggle breakpoint |
+| F5 | Start/Continue |
+| F11 / ⇧ F11 | Step into/out |
+| F10 | Step over |
+| ⇧ F5 | Stop |
+| ⌘k ⌘i | Show hover |
+
+## Integrated Terminal
+
+| Key Seq | Result |
+|---------|--------|
+| ^ ` | Show/toggle integrated terminal |
+| ^ ⇧ ` | Create new terminal |
+| ⌘ c | Copy selection |
+| ⇧ ⌘ ] / ⇧ ⌘ [ | Focus next/previous terminal |
+| ⌘ ↑ / ⌘ ↓ | Scroll up/down |
+| PgUp / PgDn | Scroll page up/down |
+| ⌘ Home / End | Scroll to top/bottom |
+| ⌘ k | Clear terminal |
+
+---
 
 ```
 Windows: CMD⌘    == Ctrl
