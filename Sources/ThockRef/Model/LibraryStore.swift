@@ -10,9 +10,51 @@ final class LibraryStore: ObservableObject {
         return home.appendingPathComponent(".config/thockref", isDirectory: true)
     }()
 
+    private var eventStream: FSEventStreamRef?
+
     init() {
         ensureDirectoryExists()
         load()
+        startWatching()
+    }
+
+    deinit {
+        if let stream = eventStream {
+            FSEventStreamStop(stream)
+            FSEventStreamInvalidate(stream)
+            FSEventStreamRelease(stream)
+        }
+    }
+
+    private func startWatching() {
+        let path = configDirectory.path as CFString
+        let paths = [path] as CFArray
+
+        var context = FSEventStreamContext(
+            version: 0,
+            info: Unmanaged.passUnretained(self).toOpaque(),
+            retain: nil,
+            release: nil,
+            copyDescription: nil
+        )
+
+        eventStream = FSEventStreamCreate(
+            nil,
+            { _, info, _, _, _, _ in
+                guard let info else { return }
+                let store = Unmanaged<LibraryStore>.fromOpaque(info).takeUnretainedValue()
+                Task { @MainActor in store.load() }
+            },
+            &context,
+            paths,
+            FSEventStreamEventId(kFSEventStreamEventIdSinceNow),
+            0.5,
+            FSEventStreamCreateFlags(kFSEventStreamCreateFlagFileEvents | kFSEventStreamCreateFlagUseCFTypes)
+        )
+
+        guard let stream = eventStream else { return }
+        FSEventStreamSetDispatchQueue(stream, DispatchQueue.main)
+        FSEventStreamStart(stream)
     }
 
     private func ensureDirectoryExists() {
