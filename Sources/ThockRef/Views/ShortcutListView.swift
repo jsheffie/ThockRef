@@ -3,6 +3,7 @@ import SwiftUI
 struct ShortcutListView: View {
     let library: Library
     @Environment(\.dismiss) private var dismiss
+    @State private var legendExpanded = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -43,6 +44,25 @@ struct ShortcutListView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
+                if let legend = library.layoutLegend {
+                    DisclosureGroup(isExpanded: $legendExpanded) {
+                        Text(legend)
+                            .font(.system(.caption, design: .monospaced))
+                            .foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 12)
+                            .padding(.bottom, 8)
+                    } label: {
+                        Label("Keyboard Layout", systemImage: "keyboard")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+
+                    Divider()
+                }
+
                 List(library.shortcuts) { shortcut in
                     HStack(alignment: .top, spacing: 12) {
                         Text(shortcut.keys)
