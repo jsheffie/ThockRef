@@ -1,10 +1,23 @@
 # Claude Code Usage Cheat Sheet
 
+```laptop-layout
+    .--------.
+    | Tab ⇥  |
+    '--------'
+    .-------------.
+    | Shift ⇧     |
+    |--------.----'-----.-------.--------------.
+    | ctrl ^ | option ⌥ | CMD ⌘ | Space Bar ␣  |
+    '--------'----------'-------'--------------'
+```
+
 ## Keyboard Shortcuts
 
 | Key Sequence | Result | Source |
 |---|---|---|
-| `Shift` -> `Tab` -> `Shift` -> `Tab` | Enable Planning Mode | 060 |
+| ⇧ ⇥ ⇧ ⇥ | Enable Planning Mode | 060 |
+
+
 | `Esc` | Interrupt Claude — redirect or give alternative instructions | 070 |
 | `Esc` -> `Esc` | Rewind conversation to an earlier point | 070 |
 | `#` | Enter memory mode — reference or save a memory | 030 |

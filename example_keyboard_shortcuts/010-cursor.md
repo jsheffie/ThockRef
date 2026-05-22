@@ -10,9 +10,10 @@ Mac Keyboard Sequences
 
 | Key Seq | RKey Seq | Result | VSCode Binding | 
 |---------|----------|--------|--- | 
-| ⌘ r 1  |  | Folding 1 level | ⌘ k 1 |
-| ⌘ r 2  |  | Folding 2 levels | ⌘ k 2 |
-| ⇧ ⌘ esc | | Open Claude Code | | 
+| ⌘ r 1   |          | Folding 1 level | ⌘ k 1 |
+| ⌘ r 2   |          | Folding 2 levels | ⌘ k 2 |
+| ⇧ ⌘ esc |          | Open Claude Code | | 
+| ⌘ r z   |          | Toggle Zen Mode | | 
 
 
 ```
