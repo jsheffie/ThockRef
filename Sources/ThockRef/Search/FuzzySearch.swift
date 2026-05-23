@@ -40,6 +40,9 @@ func fuzzyFilter(_ query: String, libraries: [Library]) -> [SearchResult] {
 
     return libraries
         .flatMap { $0.shortcuts }
+        .compactMap { item -> Shortcut? in
+            if case .shortcut(let s) = item { return s } else { return nil }
+        }
         .compactMap { shortcut -> (SearchResult, Int)? in
             let keys = expandedKeys(shortcut.keys).lowercased()
             let desc = shortcut.description.lowercased()

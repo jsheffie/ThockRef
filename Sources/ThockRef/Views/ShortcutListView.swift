@@ -64,18 +64,40 @@ struct ShortcutListView: View {
                 }
 
                 List {
-                    ForEach(library.shortcuts) { shortcut in
-                        HStack(alignment: .top, spacing: 12) {
-                            Text(shortcut.keys)
-                                .font(.system(.body, design: .monospaced))
-                                .foregroundStyle(.primary)
-                                .frame(minWidth: 110, alignment: .leading)
-                            Text(shortcut.description)
-                                .font(.body)
-                                .foregroundStyle(.secondary)
-                                .fixedSize(horizontal: false, vertical: true)
+                    ForEach(library.shortcuts) { item in
+                        switch item {
+                        case .section(_, let title):
+                            VStack(alignment: .leading, spacing: 0) {
+                                Rectangle()
+                                    .fill(Color.primary)
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 1)
+                                Text(title)
+                                    .font(.caption)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(Color.primary)
+                                    .textCase(.uppercase)
+                                    .padding(.vertical, 5)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .background(Color.primary.opacity(0.06))
+                            }
+                            .padding(.top, 8)
+                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                            .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
+                        case .shortcut(let shortcut):
+                            HStack(alignment: .top, spacing: 12) {
+                                Text(shortcut.keys)
+                                    .font(.system(.body, design: .monospaced))
+                                    .foregroundStyle(.primary)
+                                    .frame(minWidth: 110, alignment: .leading)
+                                Text(shortcut.description)
+                                    .font(.body)
+                                    .foregroundStyle(.secondary)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                            .padding(.vertical, 2)
                         }
-                        .padding(.vertical, 2)
                     }
 
                     if !library.links.isEmpty {

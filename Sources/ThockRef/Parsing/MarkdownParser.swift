@@ -2,8 +2,8 @@ import Foundation
 
 enum MarkdownParser {
 
-    static func parse(_ text: String, source: String) -> (shortcuts: [Shortcut], layoutLegend: String?, links: [LibraryLink]) {
-        var shortcuts: [Shortcut] = []
+    static func parse(_ text: String, source: String) -> (shortcuts: [ShortcutListItem], layoutLegend: String?, links: [LibraryLink]) {
+        var shortcuts: [ShortcutListItem] = []
         var layoutLegend: String? = nil
         var links: [LibraryLink] = []
 
@@ -49,11 +49,11 @@ enum MarkdownParser {
                 let trimmed = cells.map { $0.trimmingCharacters(in: .whitespaces) }
                 if let keysIdx = trimmed.indices.first(where: { !trimmed[$0].isEmpty }),
                    let descIdx = trimmed.indices.first(where: { $0 > keysIdx && !trimmed[$0].isEmpty }) {
-                    shortcuts.append(Shortcut(
+                    shortcuts.append(.shortcut(Shortcut(
                         keys: normalizeKeys(trimmed[keysIdx]),
                         description: trimmed[descIdx],
                         source: source
-                    ))
+                    )))
                 }
                 index += 1
                 continue
@@ -64,7 +64,12 @@ enum MarkdownParser {
             let trimmedLine = line.trimmingCharacters(in: .whitespaces)
             if !trimmedLine.isEmpty {
                 passedHeader = false
-                links.append(contentsOf: extractLinks(from: trimmedLine))
+                if trimmedLine.hasPrefix("## ") {
+                    let title = String(trimmedLine.dropFirst(3)).trimmingCharacters(in: .whitespaces)
+                    shortcuts.append(.section(title: title))
+                } else {
+                    links.append(contentsOf: extractLinks(from: trimmedLine))
+                }
             }
             index += 1
         }
