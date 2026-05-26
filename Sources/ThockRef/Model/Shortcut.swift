@@ -13,3 +13,15 @@ struct Shortcut: Identifiable, Hashable {
         self.source = source
     }
 }
+
+enum ShortcutListItem: Identifiable, Hashable {
+    case shortcut(Shortcut)
+    case section(id: UUID = UUID(), title: String)
+
+    var id: UUID {
+        switch self {
+        case .shortcut(let s): return s.id
+        case .section(let id, _): return id
+        }
+    }
+}

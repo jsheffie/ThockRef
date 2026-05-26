@@ -15,11 +15,11 @@ struct LibraryLink: Identifiable, Hashable {
 struct Library: Identifiable, Hashable {
     var id: UUID
     var name: String
-    var shortcuts: [Shortcut]
+    var shortcuts: [ShortcutListItem]
     var layoutLegend: String?
     var links: [LibraryLink]
 
-    init(id: UUID = UUID(), name: String, shortcuts: [Shortcut], layoutLegend: String? = nil, links: [LibraryLink] = []) {
+    init(id: UUID = UUID(), name: String, shortcuts: [ShortcutListItem], layoutLegend: String? = nil, links: [LibraryLink] = []) {
         self.id = id
         self.name = name
         self.shortcuts = shortcuts
