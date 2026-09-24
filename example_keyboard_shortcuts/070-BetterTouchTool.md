@@ -15,3 +15,4 @@
 | ^ ⌥ ↑  | Move window to top |
 | ^ ⌥ ↓  | Move window to bottom |
 | ^ ⌥ Enter  | Make full screen window |
+| ^ ⌥ r  | Move window to OBS Recording Size |

@@ -13,3 +13,4 @@
 | ⌘ ⇧ p   |          | Simple Browser |
 | ⌘ ⇧ p   |          | Open Browser |
 | ⌘ ⇧ p   |          | Toggle Zen Mode |
+| ⌘ ⇧ p   |          | Preferences: Open User Settings (JSON) |
