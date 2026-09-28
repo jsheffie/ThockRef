@@ -1,0 +1,24 @@
+# Order of the example files installed by 'make seed' and 'make dist'.
+# One file name per line, relative to this directory. Blank lines and # comments are ignored.
+# Files are copied to ~/.config/thockref with a generated NNN- prefix so the app shows them in this order.
+
+Workflow-2.0.md
+octo-review-flow.md
+herdr.md
+vim-motions.md
+neovim-kickstart.md
+nvim-octo-keys.md
+old-daily-nav-items.md
+claude-code.md
+cursor.md
+vscode.md
+vscodejdstmp.md
+vsjeff.md
+vscode-commands.md
+spacemap.md
+chrome.md
+ghostty.md
+skhd.md
+BetterTouchTool.md
+macOS.md
+thockref-keybind-template.md
