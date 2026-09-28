@@ -7,7 +7,7 @@ VERSION     := $(shell cat VERSION)
 ARCHIVE      = thockref-$(VERSION).zip
 STAGE        = thockref-$(VERSION)
 
-.PHONY: build app install run uninstall clean archive seed
+.PHONY: build app install run uninstall clean archive seed dist
 
 build:
 	swift build -c release
@@ -35,24 +35,10 @@ uninstall:
 	@echo "Removed $(INSTALL_PATH)"
 
 seed:
-	mkdir -p ~/.config/thockref
-	@for f in example_keyboard_shortcuts/*.md; do \
-		dest=~/.config/thockref/$$(basename $$f); \
-		if [ ! -f "$$dest" ]; then \
-			cp "$$f" "$$dest"; \
-			echo "Seeded $$dest"; \
-		else \
-			echo "Skipped $$dest (already exists)"; \
-		fi \
-	done
+	@scripts/install-examples.sh seed
 
 dist:
-	mkdir -p ~/.config/thockref
-	@for f in example_keyboard_shortcuts/*.md; do \
-		dest=~/.config/thockref/$$(basename $$f); \
-		cp "$$f" "$$dest"; \
-		echo "Dist $$dest"; \
-	done
+	@scripts/install-examples.sh dist
 
 archive: app
 	rm -rf $(STAGE) $(ARCHIVE)
