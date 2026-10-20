@@ -4,9 +4,9 @@
 ```laptop-layout
     .-------------.
     | Shift ⇧     |
-    |--------.----'-----.-------.--------------------------.
-    | ctrl ^ | option ⌥ | CMD ⌘ | Space Bar ␣  = <leader>  |
-    '--------'----------'-------'--------------------------'
+    |--------.----'-----.-------.----------------.
+    | ctrl ^ | option ⌥ | CMD ⌘ | ␣  = <leader>  |
+    '--------'----------'-------'----------------'
     
 ```
 
@@ -34,6 +34,21 @@
 | `␣` `s` `d` | Search diagnostics |
 | `␣` `s` `s` | Select a Telescope picker |
 | `␣` `s` `n` | Search Neovim config files |
+
+---
+
+## LSP Navigation (Telescope)
+
+<!-- Available only when a language server is attached to the buffer -->
+| Key Sequence | Result |
+|---|---|
+| `g` `r` `r` | Find references (usages) of word under cursor |
+| `g` `r` `d` | Go to definition |
+| `^` `t` | Jump back from definition |
+| `g` `r` `i` | Go to implementation |
+| `g` `r` `t` | Go to type definition |
+| `g` `O` | Search symbols in current document |
+| `g` `W` | Search symbols across workspace |
 
 ---
 
@@ -65,3 +80,15 @@
 |---|---|
 | `:checkhealth telescope` | Verify Telescope and ripgrep |
 | `:checkhealth` | Run all health checks |
+
+---
+
+## Render Markdown
+
+<!-- render-markdown.nvim: renders headings, code blocks, tables, checkboxes in markdown and octo buffers. Raw text shows in insert mode. -->
+| Key Sequence | Result |
+|---|---|
+| `␣` `t` `m` | Toggle markdown rendering |
+| `:RenderMarkdown enable` | Turn rendering on |
+| `:RenderMarkdown disable` | Turn rendering off |
+| `:help render-markdown` | Plugin docs |
