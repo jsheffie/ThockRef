@@ -62,6 +62,8 @@ Posted on GitHub.  ^c closes review tab
 | Key Seq | Result |
 |---|---|
 | `Space` `of` | Open file at the cursor line in a new tab |
+| `g` `r` `d` | Go to definition |
+| `^` `t`  | Jump back from definition |
 
 ---
 
@@ -71,7 +73,7 @@ Posted on GitHub.  ^c closes review tab
 |---|---|
 | `Space` `c` `a` | Add review comment on cursor line (or V selection) |
 | `Space` `s` `a` | Add a suggestion (GitHub suggested change block) |
-| `:w` | Save the comment in the thread buffer (stays pending until submit) |
+| `:wq` | Save the comment in the thread buffer (stays pending until submit) |
 | `Space` `c` `d` | Delete a comment (in thread) |
 | `Space` `c` `r` | Reply in an existing thread |
 | `Space` `r` `t` | Resolve a thread |

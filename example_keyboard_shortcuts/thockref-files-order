@@ -4,9 +4,11 @@
 
 Workflow-2.0.md
 octo-review-flow.md
+gh-dash.md
 herdr.md
 vim-motions.md
 neovim-kickstart.md
+nvim-folding.md
 nvim-octo-keys.md
 old-daily-nav-items.md
 claude-code.md
