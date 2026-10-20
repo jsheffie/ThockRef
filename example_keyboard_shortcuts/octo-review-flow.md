@@ -62,6 +62,8 @@ Posted on GitHub.  ^c closes review tab
 | Key Seq | Result |
 |---|---|
 | `Space` `of` | Open file at the cursor line in a new tab |
+| `g` `r` `d` | Go to definition |
+| `^` `t`  | Jump back from definition |
 
 ---
 
