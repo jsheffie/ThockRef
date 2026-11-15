@@ -1,13 +1,16 @@
 # Herdr Keyboard Shortcuts
 
 ```laptop-layout
-herdr 0.9.1   prefix = ^b  (same as tmux)
+prefix = ^␣ (ctrl+space)   same keymap on megan and lucy
 
-^b x  =  press ctrl+b, release, then press x
-^b ⇧x =  press ctrl+b, release, then shift+x
+^␣ x  =  press ctrl+space, release, then press x
+^␣ ⇧x =  press ctrl+space, release, then shift+x
 
-^b ?  shows the live list of bindings
-^b ⇧r reloads ~/.config/herdr/config.toml
+^␣ ?  shows the live list of bindings
+^␣ ⇧r reloads ~/.config/herdr/config.toml
+
+Everything else is herdr's default keymap. herdr --remote
+uses the local machine's keys, so megan -> lucy is identical.
 ```
 
 - [herdr.dev](https://herdr.dev)
@@ -20,17 +23,17 @@ herdr 0.9.1   prefix = ^b  (same as tmux)
 
 | Key Seq | Result |
 |---|---|
-| `^b` `?` | Help / show all keybindings |
-| `^b` `b` | Toggle sidebar |
-| `^b` `w` | Workspace picker |
-| `^b` `1`..`9` | Switch to tab N |
-| `^b` `v` | Split vertical (side by side) |
-| `^b` `-` | Split horizontal (stacked) |
-| `^b` `h` / `j` / `k` / `l` | Focus pane left / down / up / right |
-| `^b` `z` | Zoom (fullscreen) the pane |
-| `^b` `o` | Jump to the target of the latest notification |
-| `^b` `f` | Open file viewer in a split |
-| `^b` `⇧f` | Open file viewer in a new tab |
+| `^␣` `?` | Help / show all keybindings |
+| `^␣` `b` | Toggle sidebar |
+| `^␣` `w` | Workspace picker |
+| `^␣` `1`..`9` | Switch to tab N |
+| `^␣` `v` | Split vertical (side by side) |
+| `^␣` `-` | Split horizontal (stacked) |
+| `^␣` `h` / `j` / `k` / `l` | Focus pane left / down / up / right |
+| `^␣` `z` | Zoom (fullscreen) the pane |
+| `^␣` `o` | Jump to the target of the latest notification |
+| `^␣` `f` | Open file viewer in a split |
+| `^␣` `⇧f` | Open file viewer in a new tab |
 
 ---
 
@@ -38,12 +41,12 @@ herdr 0.9.1   prefix = ^b  (same as tmux)
 
 | Key Seq | Result |
 |---|---|
-| `^b` `?` | Help / show all keybindings |
-| `^b` `s` | Settings |
-| `^b` `q` | Detach (session keeps running) |
-| `^b` `⇧r` | Reload config |
-| `^b` `o` | Jump to the target of the latest notification |
-| `^b` `b` | Toggle sidebar |
+| `^␣` `?` | Help / show all keybindings |
+| `^␣` `s` | Settings |
+| `^␣` `q` | Detach (session keeps running) |
+| `^␣` `⇧r` | Reload config |
+| `^␣` `o` | Jump to the target of the latest notification |
+| `^␣` `b` | Toggle sidebar |
 | `^v` | Paste image (only in herdr --remote) |
 
 ---
@@ -52,12 +55,12 @@ herdr 0.9.1   prefix = ^b  (same as tmux)
 
 | Key Seq | Result |
 |---|---|
-| `^b` `w` | Workspace picker |
-| `^b` `g` | Go to (navigate mode) |
-| `^b` `⇧n` | New workspace |
-| `^b` `⇧g` | New git worktree |
-| `^b` `⇧w` | Rename workspace |
-| `^b` `⇧d` | Close workspace (asks to confirm) |
+| `^␣` `w` | Workspace picker |
+| `^␣` `g` | Go to (navigate mode) |
+| `^␣` `⇧n` | New workspace |
+| `^␣` `⇧g` | New git worktree |
+| `^␣` `⇧w` | Rename workspace |
+| `^␣` `⇧d` | Close workspace (asks to confirm) |
 
 ---
 
@@ -65,12 +68,12 @@ herdr 0.9.1   prefix = ^b  (same as tmux)
 
 | Key Seq | Result |
 |---|---|
-| `^b` `c` | New tab |
-| `^b` `⇧t` | Rename tab |
-| `^b` `p` | Previous tab |
-| `^b` `n` | Next tab |
-| `^b` `1`..`9` | Switch to tab N |
-| `^b` `⇧x` | Close tab |
+| `^␣` `c` | New tab |
+| `^␣` `⇧t` | Rename tab |
+| `^␣` `p` | Previous tab |
+| `^␣` `n` | Next tab |
+| `^␣` `1`..`9` | Switch to tab N |
+| `^␣` `⇧x` | Close tab |
 
 ---
 
@@ -78,20 +81,21 @@ herdr 0.9.1   prefix = ^b  (same as tmux)
 
 | Key Seq | Result |
 |---|---|
-| `^b` `v` | Split vertical (side by side) |
-| `^b` `-` | Split horizontal (stacked) |
-| `^b` `h` / `j` / `k` / `l` | Focus pane left / down / up / right |
-| `^b` `⇥` | Cycle to next pane |
-| `^b` `⇧⇥` | Cycle to previous pane |
-| `^b` `z` | Zoom (fullscreen) the pane |
-| `^b` `r` | Resize mode |
-| `^b` `x` | Close pane |
-| `^b` `⇧p` | Rename pane |
-| `^b` `e` | Edit scrollback in $EDITOR |
+| `^␣` `v` | Split vertical (side by side) |
+| `^␣` `-` | Split horizontal (stacked) |
+| `^␣` `h` / `j` / `k` / `l` | Focus pane left / down / up / right |
+| `^␣` `⇥` | Cycle to next pane |
+| `^␣` `⇧⇥` | Cycle to previous pane |
+| `^␣` `z` | Zoom (fullscreen) the pane |
+| `^␣` `r` | Resize mode |
+| `^␣` `x` | Close pane |
+| `^␣` `⇧p` | Rename pane |
+| `^␣` `e` | Edit scrollback in $EDITOR |
+| `^␣` `[` | Copy mode (keyboard select and copy) |
 
 ---
 
-## Navigate Mode (after ^b g)
+## Navigate Mode (after ^␣ g)
 
 | Key Seq | Result |
 |---|---|
@@ -105,8 +109,8 @@ herdr 0.9.1   prefix = ^b  (same as tmux)
 
 | Key Seq | Result |
 |---|---|
-| `^b` `f` | Open file viewer in a split |
-| `^b` `⇧f` | Open file viewer in a new tab |
+| `^␣` `f` | Open file viewer in a split |
+| `^␣` `⇧f` | Open file viewer in a new tab |
 
 ---
 
@@ -145,7 +149,7 @@ herdr 0.9.1   prefix = ^b  (same as tmux)
 | Key Seq | Result |
 |---|---|
 | `git add -N .` | 1. Give untracked files a baseline so diffs exist |
-| `^b` `f` | 2. Open the file viewer |
+| `^␣` `f` | 2. Open the file viewer |
 | `d` | 3. Git-status mode: only changed files, working-tree diffs |
 | `]` / `[` | 4. Walk the changed files one at a time |
 | `⇧d` | 5. Side-by-side for dense changes |
@@ -157,7 +161,8 @@ herdr 0.9.1   prefix = ^b  (same as tmux)
 | Command | Result |
 |---|---|
 | `herdr` | Start herdr |
-| `herdr server reload-config` | Reload config without the keybinding |
+| `herdr server reload-config` | Reload config without the keybinding (no restart, panes keep running) |
+| `make -C herdr install` | Install config.toml from jds_config (megan) or jds_config_omarchy (lucy) |
 | `herdr --default-config` | Print the full default config |
 | `herdr config reset-keys` | Back up config.toml and remove custom bindings |
 | `herdr plugin list` | Show installed plugins and pinned commits |
